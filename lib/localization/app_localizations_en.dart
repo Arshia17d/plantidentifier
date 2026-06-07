@@ -1,0 +1,30 @@
+// lib/localization/app_localizations_en.dart
+class AppLocalizationsEn {
+  static const Map<String, String> strings = {
+    'app_name': 'Plant Identifier',
+    'welcome': 'Welcome',
+    'login': 'Login',
+    'register': 'Register',
+    'email': 'Email',
+    'password': 'Password',
+    'confirm_password': 'Confirm Password',
+    'name': 'Name',
+    'take_photo': 'Take a Photo',
+    'recent_scans': 'Recent Scans',
+    'plant_name': 'Plant Name',
+    'health_status': 'Health Status',
+    'disease': 'Disease',
+    'treatment': 'Treatment',
+    'care_instructions': 'Care Instructions',
+    'history': 'History',
+    'profile': 'Profile',
+    'settings': 'Settings',
+    'language': 'Language',
+    'english': 'English',
+    'persian': 'Persian',
+    'dark_mode': 'Dark Mode',
+    'back': 'Back',
+    'next': 'Next',
+    'get_started': 'Get Started',
+  };
+}

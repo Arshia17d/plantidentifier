@@ -1,0 +1,54 @@
+name: plant_identifier
+description: یک برنامه تشخیص گیاه با رابط کاربری زیبا
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+    
+  # برای مدیریت state
+  provider: ^6.1.1
+  
+  # برای مسیریابی
+  go_router: ^13.2.0
+  
+  # برای ذخیره‌سازی تنظیمات
+  shared_preferences: ^2.2.2
+  
+  # برای فونت فارسی
+  google_fonts: ^6.1.0
+  
+  # برای آیکون‌های SVG
+  flutter_svg: ^2.0.9
+  
+  # برای کش کردن تصاویر
+  cached_network_image: ^3.3.1
+  
+  # برای بین‌المللی‌سازی
+  intl: 0.20.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  
+  assets:
+    - assets/images/
+    - assets/icons/
+    - assets/lang/          # مسیر جدید فایل‌های JSON
+    - assets/lang/en.json   # (اختیاری) می‌توانید فایل‌ها را جداگانه هم مشخص کنید
+    - assets/lang/fa.json
+  
+#  fonts:
+#    - family: Vazir
+#      fonts:
+#        - asset: assets/fonts/Vazir.ttf
