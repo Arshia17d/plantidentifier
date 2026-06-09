@@ -1,37 +1,35 @@
-name: plant_identifier
-description: یک برنامه تشخیص گیاه با رابط کاربری زیبا
+# pubspec.yaml
+name: plant_care_app
+description: Plant Disease Detection and Plant Care Assistant
 publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
+  sdk: '>=3.1.0 <4.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-    
-  # برای مدیریت state
-  provider: ^6.1.1
   
-  # برای مسیریابی
-  go_router: ^13.2.0
+  # State Management
+  flutter_riverpod: ^2.4.0
   
-  # برای ذخیره‌سازی تنظیمات
-  shared_preferences: ^2.2.2
+  # Navigation
+  go_router: ^12.0.0
   
-  # برای فونت فارسی
-  google_fonts: ^6.1.0
+  # UI Components
+  cupertino_icons: ^1.0.6
+  carousel_slider: ^5.0.0
+  smooth_page_indicator: ^1.2.1
+  percent_indicator: ^4.2.3
   
-  # برای آیکون‌های SVG
-  flutter_svg: ^2.0.9
-  
-  # برای کش کردن تصاویر
-  cached_network_image: ^3.3.1
-  
-  # برای بین‌المللی‌سازی
-  intl: 0.20.2
+  # Utils
+  intl: ^0.20.2
+  image_picker: ^1.0.4
+  shared_preferences: ^2.2.0
+  flutter_animate: ^4.2.0
 
 dev_dependencies:
   flutter_test:
@@ -40,15 +38,3 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-  
-  assets:
-    - assets/images/
-    - assets/icons/
-    - assets/lang/          # مسیر جدید فایل‌های JSON
-    - assets/lang/en.json   # (اختیاری) می‌توانید فایل‌ها را جداگانه هم مشخص کنید
-    - assets/lang/fa.json
-  
-#  fonts:
-#    - family: Vazir
-#      fonts:
-#        - asset: assets/fonts/Vazir.ttf

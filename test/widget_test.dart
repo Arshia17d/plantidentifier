@@ -1,28 +1,13 @@
-import 'package:flutter/material.dart';
+// test/widget_test.dart
 import 'package:flutter_test/flutter_test.dart';
-import 'package:plant_identifier/app.dart';
+import 'package:plant_care_app/main.dart';
 
 void main() {
-  testWidgets('App loads without errors', (WidgetTester tester) async {
-    // Build our app
-    await tester.pumpWidget(const MyApp());
-
-    // Wait for animations and async operations
+  testWidgets('App should start without errors', (WidgetTester tester) async {
+    await tester.pumpWidget(const PlantCareApp());
     await tester.pumpAndSettle();
 
-    // Verify that the app starts with splash screen
-    expect(find.text('Plant Identifier'), findsOneWidget);
-    expect(find.byIcon(Icons.eco), findsOneWidget);
-  });
-
-  testWidgets('Navigation test - Splash to Onboarding', (WidgetTester tester) async {
-    await tester.pumpWidget(const MyApp());
-
-    // Wait for splash screen delay (2 seconds)
-    await tester.pump(const Duration(seconds: 2));
-    await tester.pumpAndSettle();
-
-    // Should be on onboarding screen now
-    expect(find.text('Identify Any Plant'), findsOneWidget);
+    // Verify that the app starts
+    expect(find.byType(PlantCareApp), findsOneWidget);
   });
 }

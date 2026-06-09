@@ -1,79 +1,84 @@
+// lib/routes/app_router.dart
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import '../views/splash_screen.dart';
-import '../views/onboarding_screen.dart';
-import '../views/login_screen.dart';
-import '../views/register_screen.dart';
-import '../views/home_screen.dart';
-import '../views/camera_preview_screen.dart';
-import '../views/loading_screen.dart';
-import '../views/result_screen.dart';
-import '../views/history_screen.dart';
-import '../views/profile_screen.dart';
-import '../views/settings_screen.dart';
+import 'package:plant_care_app/routes/route_names.dart';
+import 'package:plant_care_app/features/auth/presentation/pages/splash_page.dart';
+import 'package:plant_care_app/features/auth/presentation/pages/onboarding_page.dart';
+import 'package:plant_care_app/features/auth/presentation/pages/login_page.dart';
+import 'package:plant_care_app/features/auth/presentation/pages/register_page.dart';
+import 'package:plant_care_app/features/home/presentation/pages/home_page.dart';
+import 'package:plant_care_app/features/scan/presentation/pages/scan_page.dart';
+import 'package:plant_care_app/features/scan/presentation/pages/processing_page.dart';
+import 'package:plant_care_app/features/scan/presentation/pages/analysis_result_page.dart';
+import 'package:plant_care_app/features/history/presentation/pages/history_page.dart';
+import 'package:plant_care_app/features/community/presentation/pages/community_page.dart';
+import 'package:plant_care_app/features/profile/presentation/pages/profile_page.dart';
+import 'package:plant_care_app/features/profile/presentation/pages/settings_page.dart';
+import 'package:plant_care_app/features/notifications/presentation/pages/notifications_page.dart';
+import 'package:plant_care_app/shared/widgets/app_bottom_nav.dart';
 
-final _rootNavigatorKey = GlobalKey<NavigatorState>();
-
-class AppRouter {
-  static final router = GoRouter(
-    navigatorKey: _rootNavigatorKey,
-    initialLocation: '/splash',
+final routerProvider = Provider<GoRouter>((ref) {
+  return GoRouter(
+    initialLocation: RouteNames.splash,
     routes: [
       GoRoute(
-        path: '/splash',
-        name: 'splash',
-        builder: (context, state) => const SplashScreen(),
+        path: RouteNames.splash,
+        builder: (context, state) => const SplashPage(),
       ),
       GoRoute(
-        path: '/onboarding',
-        name: 'onboarding',
-        builder: (context, state) => const OnboardingScreen(),
+        path: RouteNames.onboarding,
+        builder: (context, state) => const OnboardingPage(),
       ),
       GoRoute(
-        path: '/login',
-        name: 'login',
-        builder: (context, state) => const LoginScreen(),
+        path: RouteNames.login,
+        builder: (context, state) => const LoginPage(),
       ),
       GoRoute(
-        path: '/register',
-        name: 'register',
-        builder: (context, state) => const RegisterScreen(),
+        path: RouteNames.register,
+        builder: (context, state) => const RegisterPage(),
+      ),
+      ShellRoute(
+        builder: (context, state, child) => AppBottomNav(child: child),
+        routes: [
+          GoRoute(
+            path: RouteNames.home,
+            builder: (context, state) => const HomePage(),
+          ),
+          GoRoute(
+            path: RouteNames.scan,
+            builder: (context, state) => const ScanPage(),
+          ),
+          GoRoute(
+            path: RouteNames.history,
+            builder: (context, state) => const HistoryPage(),
+          ),
+          GoRoute(
+            path: RouteNames.community,
+            builder: (context, state) => const CommunityPage(),
+          ),
+          GoRoute(
+            path: RouteNames.profile,
+            builder: (context, state) => const ProfilePage(),
+          ),
+        ],
       ),
       GoRoute(
-        path: '/home',
-        name: 'home',
-        builder: (context, state) => const HomeScreen(),
+        path: RouteNames.processing,
+        builder: (context, state) => const ProcessingPage(),
       ),
       GoRoute(
-        path: '/camera',
-        name: 'camera',
-        builder: (context, state) => const CameraPreviewScreen(),
+        path: RouteNames.analysisResult,
+        builder: (context, state) => const AnalysisResultPage(),
       ),
       GoRoute(
-        path: '/loading',
-        name: 'loading',
-        builder: (context, state) => const LoadingScreen(),
+        path: RouteNames.settings,
+        builder: (context, state) => const SettingsPage(),
       ),
       GoRoute(
-        path: '/result',
-        name: 'result',
-        builder: (context, state) => const ResultScreen(),
-      ),
-      GoRoute(
-        path: '/history',
-        name: 'history',
-        builder: (context, state) => const HistoryScreen(),
-      ),
-      GoRoute(
-        path: '/profile',
-        name: 'profile',
-        builder: (context, state) => const ProfileScreen(),
-      ),
-      GoRoute(
-        path: '/settings',
-        name: 'settings',
-        builder: (context, state) => const SettingsScreen(),
+        path: RouteNames.notifications,
+        builder: (context, state) => const NotificationsPage(),
       ),
     ],
   );
-}
+});
